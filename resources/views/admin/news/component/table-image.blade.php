@@ -1,0 +1,1 @@
+<a href="{{ asset($data->img) }}" data-lightbox="image-1" data-title="{{ $data->title }}"><img width="70" style="border-radius:10px;" src="{{ asset($data->img) }}" alt="{{ $data->title }}"></a> 
