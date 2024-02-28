@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\News $news
- *
  * @method static \Illuminate\Database\Eloquent\Builder|NewsImage newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|NewsImage newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|NewsImage query()
@@ -27,7 +26,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|NewsImage whereNewId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|NewsImage whereOrderNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|NewsImage whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class NewsImage extends Model

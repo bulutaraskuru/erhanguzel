@@ -7,11 +7,17 @@ use App\Http\Controllers\Admin\News\indexController as NewsController;
 use App\Http\Controllers\Admin\NewsImage\indexController as NewImageController;
 use App\Http\Controllers\Admin\Page\indexController as PageController;
 use App\Http\Controllers\Admin\Partner\indexController as PartnerController;
+use App\Http\Controllers\Admin\Project\indexController as ProjectController;
+use App\Http\Controllers\Admin\ProjectCategory\indexController as ProjectCategoryController;
+use App\Http\Controllers\Admin\ProjectGallery\indexController as ProjectGalleryController;
 use App\Http\Controllers\Admin\Slider\indexController as SliderController;
 use App\Http\Controllers\Admin\Sss\indexController as SssController;
 use App\Http\Controllers\Admin\User\indexController as UserController;
+use App\Http\Controllers\Admin\Digital\indexController as DigitalController;
+use App\Http\Controllers\Admin\Video\indexController as VideoController;
 
 /** SiteController Route */
+
 use App\Http\Controllers\Site\Contact\indexController as SiteContactController;
 use App\Http\Controllers\Site\Gallery\indexController as SiteGalleryController;
 use App\Http\Controllers\Site\indexController as SiteController;
@@ -20,58 +26,7 @@ use App\Http\Controllers\Site\Page\indexController as SitePageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => 'site', 'as' => 'site.'], function () {
-//    Route::get('/', [SiteController::class, 'comingsoon'])->name('comingsoon');
-    Route::get('/', [SiteController::class, 'index'])->name('index');
 
-    Route::get('/qr', function () {
-        return redirect()->route('site.page.detail', ['slug' => 'hakkimda']);
-    })->name('qr');
-
-    Route::get('/facebook', function () {
-        return redirect('https://www.facebook.com/erhanguzel.34/');
-    })->name('facebook');
-
-    Route::get('/x', function () {
-        return redirect('https://twitter.com/erhanguzel_34');
-    })->name('x');
-
-    Route::get('/instagram', function () {
-        return redirect('https://www.instagram.com/erhanguzel.34/');
-    })->name('instagram');
-
-
-    Route::get('/linkedin', function () {
-        return redirect('https://www.linkedin.com/in/erhanguzel34/');
-    })->name('linkedin');
-
-    Route::get('/clear', function () {
-        Artisan::call("optimize:clear");
-        Artisan::call("cache:clear");
-        Artisan::call("config:cache");
-        return redirect()->route('site.index');
-    })->name('clear');
-
-
-    Route::group(['namespace' => 'contact', 'as' => 'contact.'], function () {
-        Route::get('/iletisim', [SiteContactController::class, 'index'])->name('index');
-        Route::post('/voluntarily', [SiteContactController::class, 'voluntarily'])->name('voluntarily');
-    });
-
-    Route::group(['namespace' => 'page', 'as' => 'page.'], function () {
-        Route::get('/sayfa/{slug}', [SitePageController::class, 'detail'])->name('detail');
-    });
-
-    Route::group(['namespace' => 'gallery', 'as' => 'gallery.'], function () {
-        Route::get('/galeri', [SiteGalleryController::class, 'index'])->name('index');
-    });
-
-    Route::group(['namespace' => 'news', 'as' => 'news.'], function () {
-        Route::get('/haber', [SiteNewsController::class, 'index'])->name('index');
-        Route::get('/haber/{slug}', [SiteNewsController::class, 'detail'])->name('detail');
-        Route::get('/arama', [SiteNewsController::class, 'search'])->name('search');
-    });
-});
 
 Auth::routes();
 
@@ -92,17 +47,91 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'r
         Route::post('/export', [UserController::class, 'export'])->name('export');
     });
 
-    Route::group(['prefix' => 'page', 'as' => 'page.'], function () {
-        Route::get('/', [PageController::class, 'index'])->name('index');
-        Route::get('/data', [PageController::class, 'data'])->name('data');
-        Route::get('/create', [PageController::class, 'create'])->name('create');
-        Route::post('/store', [PageController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [PageController::class, 'edit'])->name('edit');
-        Route::get('/show/{id}', [PageController::class, 'show'])->name('show');
-        Route::put('/update/{id}', [PageController::class, 'update'])->name('update');
-        Route::get('/destroy/{id}', [PageController::class, 'destroy'])->name('destroy');
-        Route::post('/export', [PageController::class, 'export'])->name('export');
-        Route::post('/upload', [PageController::class, 'upload'])->name('upload');
+    // PageController için rotaları gruplama
+    Route::prefix('page')
+        ->name('page.')
+        ->group(function () {
+            Route::controller(PageController::class)->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/data', 'data')->name('data');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/edit/{id}', 'edit')->name('edit');
+                Route::get('/show/{id}', 'show')->name('show');
+                Route::put('/update/{id}', 'update')->name('update');
+                Route::get('/destroy/{id}', 'destroy')->name('destroy');
+                Route::post('/export', 'export')->name('export');
+                Route::post('/upload', 'upload')->name('upload');
+            });
+        });
+
+    // DigitalController için rotaları gruplama
+    Route::prefix('digital')
+        ->name('digital.')
+        ->group(function () {
+            Route::controller(DigitalController::class)->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/data', 'data')->name('data');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/edit/{id}', 'edit')->name('edit');
+                Route::get('/show/{id}', 'show')->name('show');
+                Route::put('/update/{id}', 'update')->name('update');
+                Route::get('/destroy/{id}', 'destroy')->name('destroy');
+                Route::post('/export', 'export')->name('export');
+                Route::post('/upload', 'upload')->name('upload');
+            });
+        });
+    // DigitalController için rotaları gruplama
+    Route::prefix('video')
+        ->name('video.')
+        ->group(function () {
+            Route::controller(VideoController::class)->group(function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/data', 'data')->name('data');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/edit/{id}', 'edit')->name('edit');
+                Route::get('/show/{id}', 'show')->name('show');
+                Route::put('/update/{id}', 'update')->name('update');
+                Route::get('/destroy/{id}', 'destroy')->name('destroy');
+                Route::post('/export', 'export')->name('export');
+                Route::post('/upload', 'upload')->name('upload');
+            });
+        });
+
+    Route::group(['prefix' => 'project', 'as' => 'project.'], function () {
+        Route::get('/', [ProjectController::class, 'index'])->name('index');
+        Route::get('/data', [ProjectController::class, 'data'])->name('data');
+        Route::get('/create', [ProjectController::class, 'create'])->name('create');
+        Route::post('/store', [ProjectController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [ProjectController::class, 'edit'])->name('edit');
+        Route::get('/image/{id}', [ProjectController::class, 'image'])->name('image');
+        Route::put('/update/{id}', [ProjectController::class, 'update'])->name('update');
+        Route::get('/destroy/{id}', [ProjectController::class, 'destroy'])->name('destroy');
+        Route::post('/export', [ProjectController::class, 'export'])->name('export');
+        Route::post('/upload', [ProjectController::class, 'upload'])->name('upload');
+    });
+
+    Route::group(['prefix' => 'projectcategory', 'as' => 'projectcategory.'], function () {
+        Route::get('/', [ProjectCategoryController::class, 'index'])->name('index');
+        Route::get('/data', [ProjectCategoryController::class, 'data'])->name('data');
+        Route::get('/create', [ProjectCategoryController::class, 'create'])->name('create');
+        Route::post('/store', [ProjectCategoryController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [ProjectCategoryController::class, 'edit'])->name('edit');
+        Route::get('/image/{id}', [ProjectCategoryController::class, 'image'])->name('image');
+        Route::put('/update/{id}', [ProjectCategoryController::class, 'update'])->name('update');
+        Route::get('/destroy/{id}', [ProjectCategoryController::class, 'destroy'])->name('destroy');
+        Route::post('/export', [ProjectCategoryController::class, 'export'])->name('export');
+        Route::post('/upload', [ProjectCategoryController::class, 'upload'])->name('upload');
+    });
+
+    Route::group(['as' => 'projectgallery.', 'prefix' => 'projectgallery'], function () {
+        Route::post('/upload/{id}', [ProjectGalleryController::class, 'upload'])->name('upload');
+        Route::get('/destroy/{id}', [ProjectGalleryController::class, 'destroy'])->name('destroy');
+        Route::get('/data/{id}', [ProjectGalleryController::class, 'data'])->name('data');
+        Route::get('/is_active', [ProjectGalleryController::class, 'is_active'])->name('is_active');
+        Route::post('/sortable', [ProjectGalleryController::class, 'sortable'])->name('sortable');
     });
 
     Route::group(['prefix' => 'news', 'as' => 'news.'], function () {
@@ -178,4 +207,60 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'r
         Route::get('/link_type/{selected_value}', [SliderController::class, 'link_type'])->name('link_type');
         Route::post('/sortable', [SliderController::class, 'sortable'])->name('sortable');
     });
+});
+
+
+Route::group(['namespace' => 'site', 'as' => 'site.'], function () {
+    //    Route::get('/', [SiteController::class, 'comingsoon'])->name('comingsoon');
+    Route::get('/', [SiteController::class, 'index'])->name('index');
+
+    Route::get('/qr', function () {
+        return redirect()->route('site.page.detail', ['slug' => 'hakkimda']);
+    })->name('qr');
+
+    Route::get('/facebook', function () {
+        return redirect('https://www.facebook.com/erhanguzel.34/');
+    })->name('facebook');
+
+    Route::get('/x', function () {
+        return redirect('https://twitter.com/erhanguzel_34');
+    })->name('x');
+
+    Route::get('/instagram', function () {
+        return redirect('https://www.instagram.com/erhanguzel.34/');
+    })->name('instagram');
+
+    Route::get('/linkedin', function () {
+        return redirect('https://www.linkedin.com/in/erhanguzel34/');
+    })->name('linkedin');
+
+    Route::get('/clear', function () {
+        Artisan::call('db:seed');
+        Artisan::call('optimize:clear');
+        Artisan::call('permission:cache-reset');
+        return redirect()->route('site.index');
+    })->name('clear');
+
+    Route::group(['namespace' => 'contact', 'as' => 'contact.'], function () {
+        Route::get('/iletisim', [SiteContactController::class, 'index'])->name('index');
+        Route::post('/voluntarily', [SiteContactController::class, 'voluntarily'])->name('voluntarily');
+    });
+
+    Route::group(['namespace' => 'page', 'as' => 'page.'], function () {
+        Route::get('/sayfa/{slug}', [SitePageController::class, 'detail'])->name('detail');
+    });
+
+    Route::group(['namespace' => 'gallery', 'as' => 'gallery.'], function () {
+        Route::get('/galeri', [SiteGalleryController::class, 'index'])->name('index');
+    });
+
+    Route::group(['namespace' => 'news', 'as' => 'news.'], function () {
+        Route::get('/haber', [SiteNewsController::class, 'index'])->name('index');
+        Route::get('/haber/{slug}', [SiteNewsController::class, 'detail'])->name('detail');
+        Route::get('/arama', [SiteNewsController::class, 'search'])->name('search');
+    });
+
+    Route::get('/brosurlerimiz', [SiteController::class, 'digital'])->name('digital');
+    Route::get('/videolarimiz', [SiteController::class, 'videos'])->name('videos');
+    Route::get('/{slug}', [SiteController::class, 'video_detail'])->name('video_detail');
 });

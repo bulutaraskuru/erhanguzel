@@ -2038,8 +2038,8 @@ Main Menu
 #mainMenu nav > ul > li .dropdown-menu > li > a,
 #mainMenu nav > ul > li .dropdown-menu > li > span,
 #mainMenu nav > ul > li .dropdown-menu > li [class*="col-"] > ul > li > a {
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 15px;
+    line-height: 17px;
     font-weight: 500;
     font-style: normal;
     color: #444;

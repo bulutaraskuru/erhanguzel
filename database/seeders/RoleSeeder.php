@@ -174,11 +174,74 @@ class RoleSeeder extends Seeder
             //     'name' => 'partner-destroy',
             //     'display_name' => 'Kurumsal Ortaklar Silme',
             // ],
+            // [
+            //     'name' => 'gallery-list',
+            //     'display_name' => 'Galeri Listeleme',
+            // ],
             [
-                'name' => 'gallery-list',
-                'display_name' => 'Galeri Listeleme',
+                'name' => 'project-create',
+                'display_name' => 'Proje Ekleme',
             ],
-
+            [
+                'name' => 'project-list',
+                'display_name' => 'Proje Listeleme',
+            ],
+            [
+                'name' => 'project-edit',
+                'display_name' => 'Proje Düzenleme',
+            ],
+            [
+                'name' => 'project-destroy',
+                'display_name' => 'Proje Silme',
+            ],
+            [
+                'name' => 'projectcategory-create',
+                'display_name' => 'Proje Kategori Ekleme',
+            ],
+            [
+                'name' => 'projectcategory-list',
+                'display_name' => 'Proje Kategori Listeleme',
+            ],
+            [
+                'name' => 'projectcategory-edit',
+                'display_name' => 'Proje Kategori Düzenleme',
+            ],
+            [
+                'name' => 'projectcategory-destroy',
+                'display_name' => 'Proje Kategori Silme',
+            ],
+            [
+                'name' => 'digital-create',
+                'display_name' => 'Dijital Ekleme',
+            ],
+            [
+                'name' => 'digital-list',
+                'display_name' => 'Dijital Listeleme',
+            ],
+            [
+                'name' => 'digital-edit',
+                'display_name' => 'Dijital Düzenleme',
+            ],
+            [
+                'name' => 'digital-destroy',
+                'display_name' => 'Dijital Silme',
+            ],
+            [
+                'name' => 'video-create',
+                'display_name' => 'Video Ekleme',
+            ],
+            [
+                'name' => 'video-list',
+                'display_name' => 'Video Listeleme',
+            ],
+            [
+                'name' => 'video-edit',
+                'display_name' => 'Video Düzenleme',
+            ],
+            [
+                'name' => 'video-destroy',
+                'display_name' => 'Video Silme',
+            ],
         ];
 
         foreach ($permissions as $key => $permission) {

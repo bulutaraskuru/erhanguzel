@@ -45,15 +45,26 @@
                     <div class="container">
                         <nav>
                             <ul>
-
                                 <li class="@if (\Request::segment(1) == '') current @endif"><a
                                         href="{{ route('site.index') }}">Anasayfa</a></li>
                                 <li class="@if (\Request::segment(2) == 'hakkimda') current @endif"><a
                                         href="{{ route('site.page.detail', ['slug' => 'hakkimda']) }}">Hakkımda</a></li>
+                                <li class="dropdown"><a href="#">Projeler</a>
+                                    <ul class="dropdown-menu">
+                                        @foreach ($project_categories as $category)
+                                            <li><a href="#">{{ $category->title }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
                                 <li class="@if (\Request::segment(1) == 'haber') current @endif"><a
                                         href="{{ route('site.news.index') }}">Haberler</a></li>
-                                <li class="@if (\Request::segment(1) == 'galeri') current @endif"><a
-                                        href="{{ route('site.gallery.index') }}">Galeri</a></li>
+                                <li class="dropdown"><a href="#">Dijital</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ route('site.digital') }}">Broşüler</a></li>
+                                        <li><a href="{{ route('site.videos') }}">Videolar</a></li>
+                                        <li><a href="{{ route('site.gallery.index') }}">Galeri</a></li>
+                                    </ul>
+                                </li>
                                 <li class="@if (\Request::segment(1) == 'iletisim') current @endif"><a
                                         href="{{ route('site.contact.index') }}">İletişim</a></li>
                             </ul>

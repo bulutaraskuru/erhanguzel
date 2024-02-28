@@ -51,7 +51,7 @@
             <!--begin::Content container-->
             <div id="kt_app_content_container" class="app-container container-fluid">
                 <!--end::Row-->
-                <div class="card col-md-8 col-sm-12 col-xs-12">
+                <div class="card col-md-12 col-sm-12 col-xs-12">
                     <!--begin::Card body-->
                     <div class="card-body pt-0" style="padding: px !important;">
                         <!--begin::Dropzone-->

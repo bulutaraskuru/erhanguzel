@@ -7,9 +7,6 @@
  *
  * @link       https://www.themepunch.com
  * @since      1.0.0
- *
- * @package    Revslider_Weather_Addon
- * @subpackage Revslider_Weather_Addon/public/partials
  */
 ?>
 

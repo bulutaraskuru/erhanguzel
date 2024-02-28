@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $is_active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Illuminate\Database\Eloquent\Builder|Partner newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Partner newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Partner query()
@@ -26,7 +25,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Partner whereIsActive($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Partner whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Partner whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class Partner extends Model

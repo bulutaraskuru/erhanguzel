@@ -204,6 +204,63 @@
                     </a>
                     <!--end:Menu item-->
                 @endcan
+                @can('digital-list')
+                    <!--begin:Menu item-->
+                    <a href="{{ route('admin.digital.index') }}" class="menu-item  ">
+                        <!--begin:Menu link-->
+                        <span class="menu-link @if (\Request::segment(2) == 'digital') active @endif">
+                            <span class="menu-icon">
+                                <span class="bi bi-circle fs-2 "></span>
+                            </span>
+                            <span class="menu-title">Dijital Yönetimi</span>
+                        </span>
+                        <!--end:Menu link-->
+                    </a>
+                    <!--end:Menu item-->
+                @endcan
+
+                @can('video-list')
+                <!--begin:Menu item-->
+                <a href="{{ route('admin.video.index') }}" class="menu-item  ">
+                    <!--begin:Menu link-->
+                    <span class="menu-link @if (\Request::segment(2) == 'video') active @endif">
+                        <span class="menu-icon">
+                            <span class="bi bi-circle fs-2 "></span>
+                        </span>
+                        <span class="menu-title">Video Yönetimi</span>
+                    </span>
+                    <!--end:Menu link-->
+                </a>
+                <!--end:Menu item-->
+            @endcan
+                @can('project-list')
+                    <!--begin:Menu item-->
+                    <a href="{{ route('admin.project.index') }}" class="menu-item  ">
+                        <!--begin:Menu link-->
+                        <span class="menu-link @if (\Request::segment(2) == 'project') active @endif">
+                            <span class="menu-icon">
+                                <span class="bi bi-circle fs-2 "></span>
+                            </span>
+                            <span class="menu-title">Proje Yönetimi</span>
+                        </span>
+                        <!--end:Menu link-->
+                    </a>
+                    <!--end:Menu item-->
+                @endcan
+                @can('projectcategory-list')
+                    <!--begin:Menu item-->
+                    <a href="{{ route('admin.projectcategory.index') }}" class="menu-item  ">
+                        <!--begin:Menu link-->
+                        <span class="menu-link @if (\Request::segment(2) == 'projectcategory') active @endif">
+                            <span class="menu-icon">
+                                <span class="bi bi-circle fs-2 "></span>
+                            </span>
+                            <span class="menu-title">Proje Kategori Yönetimi</span>
+                        </span>
+                        <!--end:Menu link-->
+                    </a>
+                    <!--end:Menu item-->
+                @endcan
 
 
 

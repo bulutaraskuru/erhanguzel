@@ -33,7 +33,14 @@ return [
     'password-confirm' => 'Parola Tekrar',
     'created_at' => 'Eklenme Tarihi',
     'updated_at' => 'Güncelleme Tarihi',
-    'updated_at' => 'Güncelleme Tarihi',
+    'view_count' => 'Görüntüleme',
+    'success_title' => 'Başarılı, ',
+    'success_text_destroy' => 'Kayıt silindi.',
+    'file_url' => 'Dosya ',
+    'seo_keywords' => 'Google Anahtar Kelime ',
+    'seo_description' => 'Google Açıklama ',
+    'seo_title' => 'Google Başlık ',
+    'video_url' => 'Video Url ',
 
     /** Model Text Title */
     'role' => 'Yetki',
@@ -45,4 +52,8 @@ return [
     'slider' => 'Slider',
     'box' => 'İcon',
     'partner' => 'Kurumsal Ortaklar',
+    'video' => 'Video',
+    'digital' => 'Dijital',
+    'project' => 'Proje',
+    'projectcategory' => 'Proje Kategori',
 ];

@@ -9,7 +9,7 @@
     <meta name="googlebot" content="index, follow" />
     @yield('title')
 
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Stylesheets & Fonts -->
     <link href="{{ asset('site/css/plugins.css') }}" rel="stylesheet">

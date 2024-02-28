@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $order_number
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- *
  * @method static \Database\Factories\SssFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Sss newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Sss newQuery()
@@ -27,7 +26,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Sss whereOrderNumber($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sss whereQuestion($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sss whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 class Sss extends Model
